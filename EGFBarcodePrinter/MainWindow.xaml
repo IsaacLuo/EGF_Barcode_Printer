@@ -1,12 +1,52 @@
-﻿<Window x:Class="EGFBarcodePrinter.MainWindow"
+﻿<Window x:Name="window" x:Class="EGFBarcodePrinter.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EGFBarcodePrinter"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="EGF Barcode Printer" Height="480" Width="480" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="printArea">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="12"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="printAreaCanvas" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="label" Content="Label" HorizontalAlignment="Center" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Top" Background="{x:Null}" FontFamily="Arial" FontSize="12" Padding="0"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="0,20,0,0" >
+            <Button x:Name="pp" Content="Plasmid / Parts" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="pa" Content="Plasmid / Assembly" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="os" Content="Oligonucleotide / Sequencing" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="oo" Content="Oligonucleotide / Other" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="ae" Content="Agar / E.coli" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="ac" Content="Agar / S.cerevisiae" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="ap" Content="Agar / S.pombe" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="fp" Content="Fragment analyser / PCR" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="fd" Content="Fragment analyser / Digest" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="ep" Content="Echo / Parts" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="ce" Content="Cells / E.coli" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="cc" Content="Cells / Competent" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="gp" Content="Glycerol / Parts" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="ga" Content="Glycerol / Assembly" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="rd" Content="Reaction / Digest" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <Button x:Name="rs" Content="Reaction / Sequencing" Grid.Row="1" VerticalAlignment="Center" Click="pp_click"/>
+            <DatePicker x:Name="datepicker" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Center"/>
+            <Button x:Name="printBarcodeButton" Content="print" Grid.Row="1" VerticalAlignment="Center" Click="printBarcode" Margin="0,0,0,0"/>
+        </StackPanel>
+
     </Grid>
 </Window>
+
